@@ -9,30 +9,35 @@
     <meta name="author" content="Mohammed Kedir">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>EthioApps</title>
+    <title>ETHIOAPPS</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-toggle.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body style="display: none;">
     <div class="container">
       <div class="row header">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-sm-6 col-xs-6 text-left">
-          <h4 style="border-bottom: 2px solid #fff; padding-bottom: 10px; display: inline-block">ETHIOAPPS</h4>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left">
+          <h4 style="padding-bottom: 10px; display: inline-block">ETHIOAPPS</h4>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-sm-6 col-xs-6 text-center">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center" style="margin-bottom: 20px;">
           <nav class="navigation">
             <ul>
-              <li class="active"><a href="index.html">Home</a></li>
+              <li class="active"><a href="#" class="showpage" data-page="mainpage">Home</a></li>
+              <li><a href="#" class="showpage" data-page="salarycalculatorpage">Calculate Salary</a></li>
+              <li><a href="#" class="showpage" data-page="vatcalculatorpage">Calculate VAT</a></li>
             </ul>
           </nav>
         </div>
       </div>
-      <div class="row body">
+
+      <div class="row body" id="mainpage">
           <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12 text-center ethiotax-info">
             <img src="img/logo.png" width="30%"><br>
             <h2 style="display: inline-block;">EthoTAX-Calculator</h2>
@@ -99,11 +104,301 @@
                 </div>
           </div>
       </div>
-      <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12 text-center">
-            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">EthioApps, by</p> 
-            <a target="_blank" href="https://facebook.com/mamekdr">Mohammed Kedir</a>
+
+      <div class="row body hide" id="salarycalculatorpage">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12" style="padding-right: 10%;">
+          <h2 style="display: block;">Calculate Salary</h2><br>
+          <label>Insert Basic Salary:</label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">#</span>
+            <input type="number" class="form-control" placeholder="0.00" id="input_basic_salary">
           </div>
+          <br>
+          <label>Insert Allowance: (Optional)</label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">#</span>
+            <input type="number" class="form-control" placeholder="0.00" id="input_allowance">
+          </div>
+          <br><br>
+          <a href="#" class="btn btn-lg btn-default" id="calculateSalary">Calculate</a>
+          <a href="#" class="btn btn-lg btn-default" id="SalaryfieldClear">Clear</a>
+        </div>
+        <br><br>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+          <h2 style="display: block;">Result</h2><br>
+          <label>Net Salary: </label><p style="display: inline-block; margin-left: 10px;" id="r_main_net_salary">0.00</p><br><br>
+          <div class="text-left">
+            <label>Detail</label>
+            <hr style="margin-top: 0px;">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Basic Salary:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_basic_salary">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Allowance:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_allowance">0.00</p>
+              </div>                  
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Taxable Amount:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_taxable_amount">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Income TAX:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_income_tax">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Employee Pension:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_employee_pension">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Company Pension:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_company_pension">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Total Deduction:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_total_deduction">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Net Salary:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_net_salary">0.00</p>
+              </div>
+            </div><br><br>
+
+            <label>Working Day: 30/days &ampt; 8/hours per day</label>
+            <hr style="margin-top: 0px;">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Per Day:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_per_day">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Per Hour:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_per_hour">0.00</p>
+              </div>                  
+            </div><br><br>
+
+            <label>Over Time</label>
+            <hr style="margin-top: 0px;">
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                12:00AM to 4:00PM:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_12am_4pm">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                4:00PM to 12:00AM:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_4pm_12pm">0.00</p>
+              </div>                  
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Weekend:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_weekend">0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6- col-xs-6 text-right">
+                Public Holiday:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_public_holiday">0.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row body hide" id="vatcalculatorpage">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xm-12">
+          <h2 style="display: block;">Calculate VAT</h2><br>
+          <label>Insert Amount:</label>
+          <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">#</span>
+            <input type="number" class="form-control" placeholder="0.00" id="VATamount_input">
+          </div><br>
+          <label>With VAT?</label><br>
+          <input type="checkbox" checked data-size="large" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="default" data-offstyle="danger" id="withvatToggle" data-withvat="Yes">
+          <br><br>
+          <a href="#" class="btn btn-lg btn-default" id="calculateVAT">Calculate</a>
+          <a href="#" class="btn btn-lg btn-default" id="VATfieldClear">Clear</a>
+          <br><br>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+          <h2 style="display: block;">Result</h2><br>
+          <div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                With VAT:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_withVAT_val">&nbsp;0.00</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                Without VAT:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_withoutVAT_val">&nbsp;0.00</p>
+              </div>                  
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right">
+                VAT:
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                <p id="r_VAT_val">&nbsp;0.00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row footer">
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">EthioApps, by</p>
+            <a target="_blank" href="https://facebook.com/mamekdr">Mohammed Kedir</a>
+            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">|</p>
+            <a href="#" data-toggle="modal" data-target="#agreementModal">
+                <i class="fa fa-book"></i>
+              Read Agreement
+            </a>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center">
+            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">Contact Me, at</p>
+            <a target="_blank" href="https://facebook.com/mamekdr">
+            <i class="fa fa-facebook"></i>
+            Facebook
+            </a>
+            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">/ </p>
+            <a target="_blank" href="https://linkedin.com/in/mohammed-kedir-72b040152">
+            <i class="fa fa-linkedin"></i>
+            Linkedin
+            </a>
+            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">/ </p>
+            <a href="mailto:imamekdr@gmail.com">
+            <i class="fa fa-envelope"></i>
+            imamekdr@gmail.com
+            </a>
+            <p style="text-shadow: 0 1px 3px rgba(0,0,0,.5); color: #999; display: inline-block">/ </p>
+            <a href="tel: +251912614765">
+            <i class="fa fa-mobile"></i>
+            +251912614765
+            </a>
+          </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="agreementModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content" style="color: #000;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Agreement</h4>
+          </div>
+          <div class="modal-body">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                  <h4 class="panel-title">
+                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      English
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="panel-body">
+                    <h4>By using this application you agree to the Term & Condition of the following:-</h4>
+                    <ol>
+                        <li>You have the right to copy, distribute and use it free of charge.</li>
+                        <li>You don’t have the right to modify, change or sell.</li>
+                        <li>We are not responsible for any legal issue related to this application. Use it under your own responsibility. </li>
+                        <li>Any mistake or damage caused by application usage or not knowing how to use the application, we are not responsible.</li>
+                        <li>Any mistake or damage caused by application malfunction or damage, we are not responsible.</li>
+                        <li>We have the right to change the application content and structure.</li>
+                        <li>We dont have mandatory to notify users when application update is available.</li>
+                        <li>We have the right not to provide updates and cancel our application service.</li>
+                        <li>Our application calculates Salary or VAT based on the Salary and VAT proclamation, therefore, when the proclamation change, any calculation mistake caused by not updating the app or we didnt provide updates, we are not accountable. Also when proclamation updated or changed, we dont have mandatory to update our app and to notify users.</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                  <h4 class="panel-title">
+                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Amharic
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                  <div class="panel-body">
+                    <h4>ይህን አፕሊኬሽን ሲጠቀሙ ከሚከተለው የአጠቃቀም ውል ጋር ተስማምተው ውሉን እያከበሩ እንደሆነ ይቆጠራል።</h4>
+                    <ol>
+                    <li>አፕሊኬሽኑን ሙሉ ለሙሉ ያለክፍያ የመጠቀም መብት እንዲሁም ኮፒ የማድረግ እና የማከፋፈል ሙሉ መብት አሎት።</li>
+                    <li>አፕሊኬሽኑን የማስተካከልም ሆነ የመቀየር እንዲሆም የመሸጥ መብት የሎትም።</li>
+                    <li>ከአፕሊኬሽኑጋ በተያያዘ በህግ ምክንያት ለሚመጣ ማንኛውም ጉዳይ ሀላፊነት አኖስድም። በራሶ ሀላፊነት መጠቀም አለቦት።</li>
+                    <li>በአፕልኬሽኑ አጠቃቀም ምክንያትም ሆነ አጠቃቀም ባለማወቅ የተነሳ ለሚመጣ ስተት ወይም ጥፋት ተጠያቂ አይደለንም።</li>
+                    <li>በአፕሊኬሽኑ አለመስራት ምክንያት ወይም መበላሸት ምክንያት ለሚከሰት ስህተት ወይም ጥፋት ተጠያቂ አይደለንም።</li>
+                    <li>የአፕሊኬሽኑን ይዘት እና መዋቅር የመለወጥ መብታችን የተጠበቀ ነው።</li>
+                    <li>አፕሊኬሽናችንን ባደስን ጊዜ ለተጠቃሚው የማሳወቅ ግዴታ የለብንም።</li>
+                    <li>አፕሊኬሽኑን የሚገባውን እድሳት አለማቅረብ፣ አገልግሎቱንም የማቋረጥ መብታችን የተጠበቀ ነው።</li>
+                    <li>አፕሊኬሽኑ የደሞዝ ወይም የቫት ስሌት የሚሰራው ለደሞዝ እና ለቫት በወጣው አዋጅ መሰረት ነው። ስለሆነም አዋጁ በሚቀየር ጊዜ አፕሊኬሽኑን ባለማደስ ምክንያት ወይም እኛ ባለማደሳችን ምክንያት ለሚመጣ የሂሳብ ስሌት ስተት ተጠያቂ አይደለንም እንዲሁም አዋጁ በታደሰ ጊዜ ወይም በተቀየረ ጊዜ አፕሊኬሽናችንን የማደስም ሆነ ተጠቃሚውን የማሳወቅ ግዴታ የለብንም።</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -112,5 +407,8 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/jquery.min.v1.12.4.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-toggle.min.js"></script>
+    <script src="js/accounting.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

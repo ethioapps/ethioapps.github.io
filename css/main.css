@@ -4,8 +4,15 @@ body{
   background-color: #333;
 }
 
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
+}
+
 .header{
-  height: 50px;
   margin: 10px 0 20px 0;
 }
 
@@ -17,7 +24,11 @@ body{
   list-style: none;
   display: inline-block;
   padding-bottom: 5px; 
-  margin: 7px 0 0 0;
+  margin: 7px 8px 0 8px;
+}
+
+.navigation ul li:hover{
+  border-bottom: 2px solid #fff;
 }
 
 .navigation ul li.active{
@@ -57,12 +68,16 @@ body{
   background: none;
 }
 
+.footer{
+  margin-top: 10px;
+}
+
 @media (min-width: 768px){
   .lead {
     font-size: 15px;
   }
   .carousel-inner>.item>img {
-    width: 100%;
+    width: 65%;
   }
   .carousel-control{
     top: 82px;
@@ -87,6 +102,6 @@ body{
 
 @media (min-width: 1200px){
   .carousel-inner>.item>img {
-    width: 60%;
+    width: 55%;
   }
 }
