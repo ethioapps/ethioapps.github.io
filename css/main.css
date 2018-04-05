@@ -68,6 +68,10 @@ body{
   background: none;
 }
 
+.carousel-indicators{
+  bottom: 0px;
+}
+
 .footer{
   margin-top: 10px;
 }
